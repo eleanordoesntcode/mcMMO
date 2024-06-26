@@ -39,5 +39,5 @@ jobs:
     - name: Upload
       uses: actions/upload-artifact@v3
       with:
-        name: "McMMO"
-        path: "McMMO"
+        name: "mcMMO.jar"
+        path: "mcMMO.jar"
