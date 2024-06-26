@@ -38,7 +38,7 @@ jobs:
     # 5. Upload artefact
     - name: Upload
       uses: actions/upload-artifact@v4
-      if-no-files-found: error
       with:
+        if-no-files-found: "error"
         path: "/home/runner/work/mcMMO/mcMMO/target/mcMMO.jar"
         name: "mcMMO.jar"
