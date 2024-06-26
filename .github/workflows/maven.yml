@@ -13,11 +13,11 @@ jobs:
 
     # 1. Check out the current working tree
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     # 2. Setup Java 17 JDK (Adopt)
     - name: Java 17 setup
-      uses: actions/setup-java@v2
+      uses: actions/setup-java@v4
       with:
         distribution: 'adopt'
         java-package: jdk
@@ -25,7 +25,7 @@ jobs:
 
     # 3. Setup local Maven package cache to speed up building
     - name: Cache Maven packages
-      uses: actions/cache@v2
+      uses: actions/cache@v4
       with:
         path: ~/.m2
         key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
@@ -37,7 +37,8 @@ jobs:
       
     # 5. Upload artefact
     - name: Upload
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
+      if-no-files-found: "error"
       with:
         path: "/home/runner/work/mcMMO/mcMMO/target/mcMMO.jar"
         name: "mcMMO.jar"
